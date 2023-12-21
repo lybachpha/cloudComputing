@@ -1,0 +1,24 @@
+<div class="row" class="card" style="width: 100%;">
+    {{#each toys}}
+   <div class="col-sm-3">
+    <img src="{{image}}" class="card-img-top" alt="...">
+    <div class="card-body text-left">
+        <h5 class="card-title">{{name}}</h5>
+        {{!-- <p class="card-text">Category: {{category}}   </p> --}}
+        <p class="card-text">Price: {{price}}   </p>
+          {{!-- <p class="card-text">Brand: {{brand.name}}   </p> --}}
+        <a href="#" class="btn btn-primary">View Profile</a>
+    </div>
+    </div>
+    {{/each}}
+</div>
+<style>
+    body {
+        background-image: url('https://i.pinimg.com/474x/83/a6/d3/83a6d317ad575913c164b3998ecb9800.jpg'); /* Thay 'duong-dan-den-hinh-anh.jpg' bằng đường dẫn đến hình ảnh của bạn */
+        background-size: cover;
+         backdrop-filter: blur(3px); /* Điều chỉnh giá trị này để thay đổi mức độ mờ */
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+     
+</style>
