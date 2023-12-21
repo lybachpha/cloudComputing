@@ -1,0 +1,39 @@
+<div class="container-lg" style="padding-top: 50px ;">
+    {{!-- <div class="table-responsive"> --}}
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2> <b>Brand List</b></h2></div>
+                    <div class="col-sm-4" >
+                        <button type="button" class="btn btn-info add-new d-flex ml-auto" ><i class="fa fa-plus"></i> <a href="/brand/add"> Add New Brand </a></button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Brand Name</th>
+                        <th>Country</th>
+                        
+                        <th style="width:15%">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   {{#each brands }}
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td>{{ country }}</td>
+                       
+                       
+                        <td>
+                           
+                            <a  style="margin-right: 10px;" href="/toy/edit/{{ _id }}" class="btn btn-danger" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"  > &#xE254; </i></a> 
+                            <a  class="btn btn-danger" href="/toy/delete/{{ _id }}" onclick="return confirm('Are you sure to delete this toy ?');" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    
+                    {{/each}}     
+                </tbody>
+            </table>
+        </div>
+    </div>

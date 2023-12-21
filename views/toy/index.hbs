@@ -1,0 +1,101 @@
+{{!-- <a class="btn btn-info" href="/toy/add">Add new toy</a>
+
+<br><br>
+
+<br><br>
+<table class="table table-primary">
+   <tr>
+      <th>toy name</th>
+      <th>toy category</th>
+      <th>toy brand</th>
+      <th>toy image</th>
+      <th colspan="2">Menu</th>
+   </tr>
+   {{#each toys }}
+   <tr>
+      <td>{{ name }}</td>
+      <td>{{ category }}</td>
+      <td>{{ brand.name }}</td>
+      <td>
+         <img src="{{ image }}" alt="" width="100" height="120">
+      </td>
+      <td>
+         <a class="btn btn-warning" href="/toy/edit/{{ _id }}">Edit</a>
+      </td>
+      <td>
+         <a class="btn btn-danger" href="/toy/delete/{{ _id }}" onclick="return confirm('Are you sure to delete this toy ?');">Delete</a>
+      </td>
+   </tr>
+   {{/each}}
+</table> --}}
+<div class="container-lg" style="padding-top: 50px ;">
+    {{!-- <div class="table-responsive"> --}}
+        <div class="table-wrapper">
+            <div class="table-title ">
+                <div class="row">
+                    <div class="col-sm-8"><h2> <b>Toy List</b></h2></div>
+                    <div class="col-sm-4" >
+                        <button type="button" class="btn btn-info add-new d-flex ml-auto" ><i class="fa fa-plus"></i> <a href="/toy/add"> Add New Toy </a></button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Brand</th>
+                        <th style="width:15%">Image</th>
+                        <th>Price</th>
+                        <th style="width:15%">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   {{#each toys }}
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td>{{ category }}</td>
+                       
+                        <td>{{ brand.name }}</td>
+                        <td>
+                                 <img src="{{ image }}" alt="" width="100" height="120">
+                        </td>
+                        <td class="with-dollar-icon">{{ price}} $</td>
+                        <td>
+                           
+                            <a  style="margin-right: 10px;" href="/toy/edit/{{ _id }}" class="btn btn-danger" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"  > &#xE254; </i></a> 
+                            <a  class="btn btn-danger" href="/toy/delete/{{ _id }}" onclick="return confirm('Are you sure to delete this toy ?');" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    
+                    {{/each}}     
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+    <style>
+    body {
+        background-image: url('https://i.pinimg.com/474x/83/a6/d3/83a6d317ad575913c164b3998ecb9800.jpg'); /* Thay 'duong-dan-den-hinh-anh.jpg' bằng đường dẫn đến hình ảnh của bạn */
+        background-size: cover;
+        backdrop-filter: blur(2px); /* Điều chỉnh giá trị này để thay đổi mức độ mờ */
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .table {
+    border-collapse: collapse;
+    background-color: transparent;
+    
+      }
+
+    .table th, .table td {
+    border: 1px solid #6e4545; /* Thay đổi màu viền nếu cần */
+    background-color:#b98c7b ;
+     color: #a13007 ;
+    }
+    
+</style>
+{{!-- </div>   --}}

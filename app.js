@@ -4,14 +4,22 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var toyRouter = require('./routes/toy');
+var brandRouter = require('./routes/brand');
+
+
 var app = express();
+
+var hbs = require('hbs');
+hbs.registerHelper('equal', require('handlebars-helper-equal'))
 
 // 2. config 'mongoose' module
 var mongoose = require('mongoose');
-var uri = "mongodb+srv://bachien0987:Tgy5UFJrUB1FrHjZ@asm2.6fjt1ed.mongodb.net/";
+var uri = "mongodb+srv://bachien0987:Tgy5UFJrUB1FrHjZ@asm2.6fjt1ed.mongodb.net/asm";
 mongoose.set('strictQuery', true); //ignore mongoose warning
 mongoose.connect(uri)
   .then(() => console.log('ok'))
@@ -35,6 +43,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.use('/toy', toyRouter);
+app.use('/brand', brandRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
