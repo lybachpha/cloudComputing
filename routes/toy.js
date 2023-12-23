@@ -7,6 +7,24 @@ router.get('/', async (req, res) => {
    var toys = await ToyModel.find({}).populate('brand')
    res.render('toy/index', { toys });
 })
+
+// router.get('/:category', async (req, res) => {
+//    try {
+//        const category = req.params.category;
+//        const toys = await ToyModel.find({ category: category });
+//        res.render('toy/list', { toys });
+//    } catch (error) {
+//        res.status(500).json({ message: error.message });
+//    }
+// });
+router.get('/detail/:id', async (req, res) => {
+   var id = req.params.id;
+   // SELECT * FROM student WHERE id = 'id'
+   var toy = await ToyModel.findById(id).populate('brand');
+   var brands = await BrandModel.find({});
+   res.render('toy/detail', { toy, brands });
+})
+
 router.get('/customer', async (req, res) => {
    var toys = await ToyModel.find({}).populate('brand');
    //Path: views/toy/index.hbs

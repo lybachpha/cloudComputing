@@ -1,25 +1,55 @@
-<div class="row" class="card" style="width: 100%;">
-  <br> <br>
-    {{#each toys}}
-   <div class="col-sm-3">
-    <img src="{{image}}" class="card-img-top" alt="...">
-    <div class="card-body text-left">
-        <h5 class="card-title">{{name}}</h5>
-        {{!-- <p class="card-text">Category: {{category}}   </p> --}}
-        <p class="card-text">Price: {{price}}   </p>
-          {{!-- <p class="card-text">Brand: {{brand.name}}   </p> --}}
-        <a href="#" class="btn btn-primary">View Profile</a>
+<div class="container" style="margin-top: 50px;">
+    <div class="row product-row">
+        {{#each toys}}
+        <div class="col-sm-3">
+            <div class="card">
+                <img src="{{image}}" class="card-img-top toy-image" alt="...">
+                <div class="card-body text-left">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">Price: {{price}}</p>
+                    <a href="/toy/detail/{{_id}}" class="btn btn-primary">View Profile</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </div>
-    </div>
-    {{/each}}
 </div>
 <style>
-    body {
-        background-image: url('https://i.pinimg.com/474x/83/a6/d3/83a6d317ad575913c164b3998ecb9800.jpg'); /* Thay 'duong-dan-den-hinh-anh.jpg' bằng đường dẫn đến hình ảnh của bạn */
-        background-size: cover;
-         backdrop-filter: blur(3px); /* Điều chỉnh giá trị này để thay đổi mức độ mờ */
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-     
+.container {
+    margin-top: 50px;
+}
+
+.product-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px; /* Spacing between rows */
+}
+
+.col-sm-3 {
+    display: flex;
+    margin-bottom: 10px; /* Spacing at the bottom of each card */
+}
+
+.card {
+    flex: 1; /* Cards will fill the space of the .col container */
+    display: flex;
+    flex-direction: column; /* Align card contents vertically */
+    margin-bottom: 10px; /* Spacing at the bottom of each card */
+}
+
+.card-img-top {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area without stretching the image */
+}
+
+.card-body {
+    flex-grow: 1; /* Allow card body to fill available space */
+    display: flex;
+    flex-direction: column; /* Align card contents vertically */
+}
+
+.card .btn {
+    margin-top: auto; /* Pushes the button to the bottom of the card */
+}
 </style>

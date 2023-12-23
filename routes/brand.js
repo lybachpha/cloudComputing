@@ -17,6 +17,16 @@ router.get('/', async (req, res) => {
     await BrandModel.create(brand);
     res.redirect('/brand');
  })
+
+
+ router.get('/:id', async (req, res) => {
+   try {
+       const toys = await ToyModel.find({ brand: req.params.id });
+       res.render('toy/list', { toys });
+   } catch (error) {
+       res.status(500).json({ message: error.message });
+   }
+});
  
  router.get('/detail/:id', async (req, res) => {
     var id = req.params.id;
