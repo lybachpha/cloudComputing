@@ -8,6 +8,11 @@ var ToySchema = mongoose.Schema({
          {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'brands' 
+         },
+         color    :
+         {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'colors' 
          }
 });
 var ToyModel = mongoose.model('toys', ToySchema)

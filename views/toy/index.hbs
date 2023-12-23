@@ -50,6 +50,7 @@
                         <th>Brand</th>
                         <th style="width:15%">Image</th>
                         <th>Price</th>
+                        <th>Color</th>
                         <th style="width:15%">Actions</th>
                     </tr>
                 </thead>
@@ -60,10 +61,12 @@
                         <td>{{ category }}</td>
                        
                         <td>{{ brand.name }}</td>
+                      
                         <td>
                                  <img src="{{ image }}" alt="" width="100" height="120">
                         </td>
                         <td class="with-dollar-icon">{{ price}} $</td>
+                          <td>{{color.name}}</td>
                         <td>
                            
                             <a  style="margin-right: 10px;" href="/toy/edit/{{ _id }}" class="btn btn-danger" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"  > &#xE254; </i></a> 

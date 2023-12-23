@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 
 var toyRouter = require('./routes/toy');
 var brandRouter = require('./routes/brand');
+var colorRouter = require('./routes/color');
 
 
 var app = express();
@@ -46,6 +47,7 @@ app.use('/users', usersRouter);
 
 app.use('/toy', toyRouter);
 app.use('/brand', brandRouter);
+app.use('/color', colorRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

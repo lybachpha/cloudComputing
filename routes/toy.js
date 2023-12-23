@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 var ToyModel = require('../models/ToyModel');
 var BrandModel = require('../models/BrandModel');
+const ColorModel = require('../models/ColorModel');
 
 router.get('/', async (req, res) => {
-   var toys = await ToyModel.find({}).populate('brand')
+   var toys = await ToyModel.find({}).populate('brand').populate('color')
    res.render('toy/index', { toys });
 })
 
@@ -33,7 +34,8 @@ router.get('/customer', async (req, res) => {
 
 router.get('/add', async (req, res) => {
    var brands = await BrandModel.find({});
-   res.render('toy/add', { brands });
+   var colors =await ColorModel.find({});
+   res.render('toy/add', { brands,colors });
 })
 
 router.post('/add', async (req, res) => {
