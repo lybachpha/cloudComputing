@@ -53,8 +53,9 @@ router.get('/delete/:id', async (req, res) => {
 router.get('/edit/:id', async (req, res) => {
    var id = req.params.id;
    var toy = await ToyModel.findById(id);
+   var colors =await ColorModel.find({});
    var brands = await BrandModel.find({});
-   res.render('toy/edit', { toy, brands });
+   res.render('toy/edit', { toy, brands,colors });
 })
 
 router.post('/edit/:id', async (req, res) => {
